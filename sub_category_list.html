@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sub_category</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <style>
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh; /* This ensures that the container takes the full height of the viewport */
+          margin: 0; /* Remove default body margin */
+      }
+
+      .centered-section {
+          text-align: center; /* Optional: Center-align the content inside the section */
+          padding: 20px; /* Optional: Add padding for better visual appearance */
+          border: 1px solid #ccc; /* Optional: Add border for visualization */
+      }
+  </style>
+
+</head>
+<body>
+  
+  <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+  <div class="centered-section">
+    {% for sub_category in sub_categories %}
+  <a href="{% url 'product_list' sub_category.id %}">{{ sub_category.name }}</a><br>
+  <img src="{{ sub_category.image.url }}" alt="{{ sub_category.name }}">
+{% endfor %}
+  </div>
+{% comment %} <script src="{% static 'js/bootstrap.bundle.js' %}"></script> {% endcomment %}
+</body>
+</html>

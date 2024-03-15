@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product_detail</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* This ensures that the container takes the full height of the viewport */
+            margin: 0; /* Remove default body margin */
+        }
+
+        .centered-section {
+            text-align: center; /* Optional: Center-align the content inside the section */
+            padding: 5px; /* Optional: Add padding for better visual appearance */
+            border: 2px solid #ccc; /* Optional: Add border for visualization */
+           
+        }
+    </style>
+
+</head>
+<body>
+    <div class="centered-section">
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <h1>{{ product.name }}</h1> 
+<img src="{{ product.image.url }}" alt="{{ product.name }}">
+<p>{{ product.description }}</p>
+<p>Price: ${{ product.price }}</p>
+</div>
+</body>
+</html>
